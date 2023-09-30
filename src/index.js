@@ -1,12 +1,13 @@
 import { createRoot } from "react-dom/client";
-import MainView from "./components/main-view/main-view";
-import { configureStore } from "redux";
-import todos from "./components/reducers/index";
-import { addTodo, toggleTodo, editTodo, deleteTodo } from "./components/actions/index";
+import { configureStore } from "@reduxjs/toolkit";
+import MainView from "./actions/main-view/main-view";
+import { legacy_createStore as createStore } from "redux";
+import todos from "./reducers/index";
+import { addTodo, toggleTodo, } from "./actions";
 import "./index.scss";
 
 
-const store = configureStore(todos);
+const store = createStore(todos);
 
 console.log('Initial STate', store.getState());
 
